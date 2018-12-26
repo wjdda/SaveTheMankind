@@ -5,6 +5,7 @@ import com.gamethread.Main;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -13,11 +14,16 @@ public class Sprite {
     private String fileName;
     private BufferedImage image = null;
 
+    // Store the Angle of rotation of sprite
+    public AffineTransform rotation;
+
     public Sprite(String fileName) {
         if (fileName != null && !fileName.equals("")) {
             // Leave a possibility to create an empty Sprite and fill it later
             this.setImage(fileName);
         }
+
+        this.rotation = new AffineTransform();
     }
 
     // FIXME Getter() to Class.attr
@@ -41,8 +47,18 @@ public class Sprite {
         this.fileName = filename;
     }
 
-    public void render(Graphics g, int x, int y, int w, int h) {
+    public void render(Graphics g, int rotation_angle, int x, int y, int w, int h) {
+        AffineTransform saveAT = ((Graphics2D) g).getTransform();
+
+        if (rotation_angle != 0) {
+            this.rotation.setToIdentity();
+            this.rotation.rotate(Math.toRadians(rotation_angle), (double) (x + w / 2), (double) (y + h / 2));
+        }
+
         g.setColor(Color.GREEN);
-        g.drawImage(this.image, x, y, w, h, null);
+        ((Graphics2D) g).transform(rotation);
+
+        g.drawImage(image, x, y, w, h, null);
+        ((Graphics2D) g).setTransform(saveAT);
     }
 }

@@ -12,10 +12,6 @@ import static java.lang.Math.min;
 
 public class Unit extends GameObject implements Shootable {
 
-    // Where the "face"/gun is looking to (left-top, left-bottom, right-top, right-bottom etc.),
-    // here sprites will be used. May be NULL for the objects which don't shoot, like a wall.
-    private boolean[] direction;
-
     // May be NULL (for the wall), but we suppose each unit can use only one type of weapon.
     // it is also supposed that it is not possible to redevelop existing units to use another weapon
     // but it will be possible to upgrade some factory to produce some type of units with another
@@ -61,7 +57,6 @@ public class Unit extends GameObject implements Shootable {
         this.weapon = weapon;
 
         // 3 - default values
-        this.direction = new boolean[]{false, false};
         this.targetPoint = null;
         this.isCorrupted = false;
         this.weapon.setOwner(this);
@@ -160,7 +155,7 @@ public class Unit extends GameObject implements Shootable {
 
         if (destPoint != null) {
 //            Main.printMsg("Player " + this.getPlayerId() + " move to destPoint");
-            moveTo(destPoint);
+            this.moveTo(destPoint);
             return;
         }
 
@@ -198,7 +193,8 @@ public class Unit extends GameObject implements Shootable {
         // or: something hinders (impediment on the line of fire) - need to relocate
         // TODO Here may be a Def target where unit can't pursuing
         // TODO Move it in AI_Tools_Class
-        moveTo(getNextPointOnOptimalShootingPath(target));
+        Main.printMsg("Some unit of Player " + this.getPlayerId() + " move To!");
+        this.moveTo(getNextPointOnOptimalShootingPath(target));
     }
 
     // TODO Move it in gametools Class
@@ -255,6 +251,7 @@ public class Unit extends GameObject implements Shootable {
     }
 
     public void render(Graphics g) {
+//        Main.printMsg("Rendering UNIT: " + this.getPlayerId());
         super.render(g);
 
         if (!hasWeapon()) {
