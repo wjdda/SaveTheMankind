@@ -153,7 +153,6 @@ public class GameObject implements Moveable {
         int rect_h    = size[1] * Restrictions.BLOCK_SIZE;
 
         // ----> Drawing sprite with actual orientation
-        // FIXME Bug Here. Sprites of all units Rotating! WTF? (One sprite to all Units?)
         this.sprite.render(g, spriteRotationAngle, rect_x, rect_y, rect_w, rect_h);
 
         // ----> Drawing HP rectangle

@@ -53,11 +53,10 @@ public class Sprite {
         if (rotation_angle != 0) {
             this.rotation.setToIdentity();
             this.rotation.rotate(Math.toRadians(rotation_angle), (double) (x + w / 2), (double) (y + h / 2));
+            ((Graphics2D) g).transform(rotation);
         }
 
         g.setColor(Color.GREEN);
-        ((Graphics2D) g).transform(rotation);
-
         g.drawImage(image, x, y, w, h, null);
         ((Graphics2D) g).setTransform(saveAT);
     }

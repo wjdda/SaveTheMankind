@@ -99,7 +99,7 @@ public class Main {
         // This is a test. Initialising tanks for Player.
         // We try calculate how much tanks we can place on map by width
 //        int testNumTanks = GameMap.getInstance().getWidth() / 2 - 1;
-        int testNumTanks = 1;
+        int testNumTanks = 2;
 
         ArrayList<Unit> testPlayerUnits = new ArrayList<Unit>();
         for (int i=0; i <= testNumTanks - 1; i++) {
@@ -127,7 +127,7 @@ public class Main {
         // This is a test. Initialising tanks for Player.
         // We try calculate how much tanks we can place on map by width
 //        int testEnemyTanks = GameMap.getInstance().getWidth() / 2 - 1;
-        int testEnemyTanks = 1;
+        int testEnemyTanks = 2;
         ArrayList<Unit> testEnemyUnits = new ArrayList<Unit>();
         for (int i=0; i <= testEnemyTanks - 1; i++) {
             testEnemyUnits.add(

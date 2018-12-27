@@ -96,6 +96,12 @@ public class GameMap {
                 boolean occupied = objectsOnMap[i][j].size() != 0;
 //                boolean occupied = false;
                 this.landscapeBlocks[i][j].render(g, occupied);
+            }
+        }
+
+        // Rendering objects on a blocks
+        for (int i = 0; i < getWidth(); i++) {
+            for (int j = 0; j < getHeight(); j++) {
                 this.renderObjects(g, objectsOnMap[i][j]);
             }
         }
