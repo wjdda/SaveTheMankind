@@ -37,13 +37,13 @@ public class GameMapBlock {
 
     // Block Static natSprite initing with static content
     static {
-        natSprite.put(Nature.SAND,   "sand.png");
-        natSprite.put(Nature.DIRT,   "sand.png");
+        natSprite.put(Nature.SAND,   "sand_dark_stackable.png");
+        natSprite.put(Nature.DIRT,   "dirt.png");
 //        natSprite.put(Nature.FOREST, "forest.png");
         natSprite.put(Nature.BUSH,   "bush.png");
-        natSprite.put(Nature.WATER,  "water.png");
-        natSprite.put(Nature.HILL,   "hill.png");
-        natSprite.put(Nature.MARSH,  "marsh.png");
+        natSprite.put(Nature.WATER,  "water_dirt.png");
+        natSprite.put(Nature.HILL,   "hill_dirt.png");
+        natSprite.put(Nature.MARSH,  "marsh_dirt_stackable.png");
         natSprite.put(Nature.HOLE,   "hole_dirt.png");
         natSprite.put(Nature.PLATE,  "plate.png");
     }
