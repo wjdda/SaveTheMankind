@@ -40,7 +40,7 @@ public class Main {
 
     /* DEBUG */
     private static boolean TRACE_ON = false;
-    private static boolean OUT_LOG = true;
+    private static boolean OUT_LOG = false;
 
     private static MouseRect mouseRectangle = new MouseRect();
     private static MouseController mouseController = new MouseController();
